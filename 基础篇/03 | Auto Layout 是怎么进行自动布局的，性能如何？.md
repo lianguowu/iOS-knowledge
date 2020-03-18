@@ -37,6 +37,6 @@ Auto Layout 不只有布局算法 Cassowary，还包含了布局在运行时的�
 
 总体来说， iOS12 的 Auto Layout 更多地利用了 Cassowary 算法的界面更新策略，使其真正完成了高效的界面线性策略计算。
 
-# 拓展
-[WWDC 2018：高性能 Auto Layout](https://juejin.im/post/5b1ea5046fb9a01e2b2cc4a7)
-[Auto Layout 秘境](https://github.com/johnlui/AutoLayout)
+# 扩展
++ [WWDC 2018：高性能 Auto Layout](https://juejin.im/post/5b1ea5046fb9a01e2b2cc4a7)
++ [Auto Layout 秘境](https://github.com/johnlui/AutoLayout)
