@@ -44,6 +44,22 @@ main() 函数执行后的阶段，指的是从 main() 函数执行开始，到 a
 
 
 ## 拓展
-[如何精确度量 iOS App 的启动时间](https://www.jianshu.com/p/c14987eee107)
-1. Xcode 测量 pre-main 时间的两种方法: DYLD_PRINT_STATISTICS 设为 | DYLD_PRINT_STATISTICS_DETAILS 设为 1 
-2. 监控 C++ 静态对象的 initializer 和 ObjC Load 耗时的方法: 
+1. [深入理解iOS App的启动过程](https://blog.csdn.net/Hello_Hwc/article/details/78317863)
+
+2. [如何精确度量 iOS App 的启动时间](https://www.jianshu.com/p/c14987eee107)
++ Xcode 测量 pre-main 时间的两种方法: DYLD_PRINT_STATISTICS 设为 | DYLD_PRINT_STATISTICS_DETAILS 设为 1 
++ 监控 C++ 静态对象的 initializer 和 ObjC Load 耗时的方法: 
+
+3. [一次立竿见影的启动时间优化](https://juejin.im/post/5992be4af265da3e13578329)
++ 使用BLStopwatch 打点算出方法开始到结束的时间 用来看出耗时
++ 首屏渲染 先展示出UI 再展示出数据
+
+4. [iOS App 启动性能优化-Wifi管家](https://mp.weixin.qq.com/s/Kf3EbDIUuf0aWVT-UCEmbA)
++ 移除不需要用到的动态库
++ 移除不需要用到的类
++ 合并功能类似的类和扩展（Category）
++ 压缩资源图片
++ 优化applicationWillFinishLaunching
++ 优化rootViewController加载
+
+
