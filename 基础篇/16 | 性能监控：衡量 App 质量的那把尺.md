@@ -24,8 +24,25 @@ Analysis Core 收集和处理数据的过程，可以大致分为以下这三步
 
 
 ## 线上性能监控
+线上性能监控，主要集中在 CPU 使用率、FPS 的帧率和内存这三个方面
 
+**CPU 使用率的线上监控方法**
 
+App 作为进程运行起来后会有多个线程，每个线程对 CPU 的使用率不同。各个线程对 CPU 使用率的总和，就是当前 App 对 CPU 的使用率。明白了这一点以后，我们也就摸清楚了对 CPU 使用率进行线上监控的思路。
+
+在 iOS 系统中，你可以在 usr/include/mach/thread_info.h 里看到线程基本信息的结构体，其中的 cpu_usage 就是 CPU 使用率
+
+**FPS 线上监控方法**
+
+是指图像连续在显示设备上出现的频率。FPS 低，表示 App 不够流畅，还需要进行优化。
+
+但是，和前面对 CPU 使用率和内存使用量的监控不同，iOS 系统中没有一个专门的结构体，用来记录与 FPS 相关的数据。但是，对 FPS 的监控也可以比较简单的实现：通过注册 CADisplayLink 得到屏幕的同步刷新率，记录每次刷新时间，然后就可以得到 FPS
+
+**内存使用量的线上监控方法**
+
+通常情况下，我们在获取 iOS 应用内存使用量时，都是使用 task_basic_info 里的 resident_size 字段信息。但是，我们发现这样获得的内存使用量和 Instruments 里看到的相差很大。后来，在 2018 WWDC Session 416 iOS Memory Deep Dive中，苹果公司介绍说 phys_footprint 才是实际使用的物理内存。
+
+内存信息存在 task_info.h （完整路径 usr/include/mach/task.info.h）文件的 task_vm_info 结构体中，其中 phys_footprint 就是物理内存的使用，而不是驻留内存 resident_size。
 
 
 
