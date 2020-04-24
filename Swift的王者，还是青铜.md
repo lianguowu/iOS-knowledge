@@ -51,6 +51,7 @@ Collection 是一个继承于 Sequence 序列，是一个元素可以反复遍�
 参考
 + [Swift 解读 - Collection 大家族（上篇）](https://www.jianshu.com/p/6762c2b5274a)
 
+
 ### CustomStringConvertible Protocol
 
 在调试的时候总会发现在输出自定义的类与结构体时,会打印很多不想输出的变量,这就有了CustomStringConvertible,CustomDebugStringConvertible这两个协议的用处.
