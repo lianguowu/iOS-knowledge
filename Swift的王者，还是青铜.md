@@ -15,7 +15,7 @@ Sequence的协议里只有一个必须实现的方法就是makeIterator()，make
 + [Swift中的Sequence基本的使用](https://www.jianshu.com/p/f431984b6e3b)
 + [Swift Sequence实现](https://www.jianshu.com/p/d27099e17a6f)
 
-### Literal Protocol 字面量协议
+### 2.Literal Protocol 字面量协议
 
 所谓字面量，是指一段能表示特定类型的值（如数值、布尔值、字符串）的源码表达式
 
@@ -39,7 +39,7 @@ Swift中的字面量协议主要有以下几个：
 参考
 + [Swift的字面量类型（Literal Type）和字面量协议（Literal Protocol）](https://www.jianshu.com/p/c9c19d0f337c)
 
-### Collection Protocol
+### 3.Collection Protocol
 
 Collection 是一个继承于 Sequence 序列，是一个元素可以反复遍历并且可以通过索引的下标访问的有限集合。集合在标准库中广泛使用，当我们在使用数组、字典和其他集合时，大多将受益于 Collection 协议声明和实现的操作。 除了集合从 Sequence 协议继承的操作之外，最大的不同点是可以访问依赖于访问集合中特定位置的元素的方法。
 
@@ -52,7 +52,7 @@ Collection 是一个继承于 Sequence 序列，是一个元素可以反复遍�
 + [Swift 解读 - Collection 大家族（上篇）](https://www.jianshu.com/p/6762c2b5274a)
 
 
-### CustomStringConvertible Protocol
+### 4.CustomStringConvertible Protocol
 
 在调试的时候总会发现在输出自定义的类与结构体时,会打印很多不想输出的变量,这就有了CustomStringConvertible,CustomDebugStringConvertible这两个协议的用处.
 
