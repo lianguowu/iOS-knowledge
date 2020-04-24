@@ -11,9 +11,9 @@ Swift 内功劝退篇: [链接地址](https://mp.weixin.qq.com/s/U95QmOOjeXkk-yC
 
 Sequence的协议里只有一个必须实现的方法就是makeIterator()，makeIterator()需要返回一个Iterator，他就是一个IteratorProtocol类型。
 
-[Swift中的Sequence基本的使用](https://www.jianshu.com/p/f431984b6e3b)
-
-[Swift Sequence实现](https://www.jianshu.com/p/d27099e17a6f)
+参考
++ [Swift中的Sequence基本的使用](https://www.jianshu.com/p/f431984b6e3b)
++ [Swift Sequence实现](https://www.jianshu.com/p/d27099e17a6f)
 
 ### Literal Protocol 字面量协议
 
@@ -23,21 +23,28 @@ Sequence的协议里只有一个必须实现的方法就是makeIterator()，make
 
 Swift中的字面量协议主要有以下几个：
 
-* ExpressibleByNilLiteral         // nil字面量协议
-* ExpressibleByIntegerLiteral     // 整数字面量协议
-* ExpressibleByFloatLiteral       // 浮点数字面量协议
-* ExpressibleByBooleanLiteral     // 布尔值字面量协议
-* ExpressibleByStringLiteral      // 字符串字面量协议
-* ExpressibleByArrayLiteral       // 数组字面量协议
-* ExpressibleByDictionaryLiteral  // 字典字面量协议
++ ExpressibleByNilLiteral         // nil字面量协议
++ ExpressibleByIntegerLiteral     // 整数字面量协议
++ ExpressibleByFloatLiteral       // 浮点数字面量协议
++ ExpressibleByBooleanLiteral     // 布尔值字面量协议
++ ExpressibleByStringLiteral      // 字符串字面量协议
++ ExpressibleByArrayLiteral       // 数组字面量协议
++ ExpressibleByDictionaryLiteral  // 字典字面量协议
 
 其中， ExpressibleByStringLiteral 字符串字面量协议相对复杂一点，该协议还依赖于以下2个协议（也就是说，实现ExpressibleByStringLiteral时，还需要实现下面2个协议）:
 
-* ExpressibleByUnicodeScalarLiteral
-* ExpressibleByExtendedGraphemeClusterLiteral
++ ExpressibleByUnicodeScalarLiteral
++ ExpressibleByExtendedGraphemeClusterLiteral
 
-[Swift的字面量类型（Literal Type）和字面量协议（Literal Protocol）](https://www.jianshu.com/p/c9c19d0f337c)
+参考
++ [Swift的字面量类型（Literal Type）和字面量协议（Literal Protocol）](https://www.jianshu.com/p/c9c19d0f337c)
 
+### Collection Protocol
+
+Collection 是一个继承于 Sequence 序列，是一个元素可以反复遍历并且可以通过索引的下标访问的有限集合。集合在标准库中广泛使用，当我们在使用数组、字典和其他集合时，大多将受益于 Collection 协议声明和实现的操作。 除了集合从 Sequence 协议继承的操作之外，最大的不同点是可以访问依赖于访问集合中特定位置的元素的方法。
+
+参考
+[Swift 解读 - Collection 大家族（上篇）](https://www.jianshu.com/p/6762c2b5274a)
 
 
 
