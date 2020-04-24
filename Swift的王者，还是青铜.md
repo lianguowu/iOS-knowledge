@@ -43,8 +43,13 @@ Swift中的字面量协议主要有以下几个：
 
 Collection 是一个继承于 Sequence 序列，是一个元素可以反复遍历并且可以通过索引的下标访问的有限集合。集合在标准库中广泛使用，当我们在使用数组、字典和其他集合时，大多将受益于 Collection 协议声明和实现的操作。 除了集合从 Sequence 协议继承的操作之外，最大的不同点是可以访问依赖于访问集合中特定位置的元素的方法。
 
++ Element、makeIterator：重写 Sequence 的 Element、makeIterator；
++ startIndex、endIndex：非空集合中第一个、最后一个元素的位置；
++ subscript：下标访问集合元素，例如 collection[i]、collection[0...i]；
++ indices: 集合的索引
+
 参考
-[Swift 解读 - Collection 大家族（上篇）](https://www.jianshu.com/p/6762c2b5274a)
++ [Swift 解读 - Collection 大家族（上篇）](https://www.jianshu.com/p/6762c2b5274a)
 
 
 
