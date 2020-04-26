@@ -69,7 +69,12 @@ Collection 是一个继承于 Sequence 序列，是一个元素可以反复遍�
 + [Swift 4.2 新特性详解 Hashable 和 Hasher](https://www.jianshu.com/p/0b688dd4c67c)
 
 ### 6.CodableProtocol
-Swift 4中苹果引入了全新的编码与解码支持，开发者可以更加方便地将数据转化为JSON或存入本地磁盘。这个功能的核心是Codable协议，其定义如下：
+
+Swift 新引入的 Codable 是建立在一些基础协议之上的。
+
+Encodable 这个协议用在那些需要被编码的类型上。如果遵守了这个协议，并且这个类的所有属性都是 Encodable 的， 编译器就会自动的生成相关的实现。如果不是，或者说你需要自定义一些东西，就需要自己实现了。
+
+Decodable这个协议跟 Encodable 相反，它表示那些能够被解档的类型。跟 Encodable 一样,编译器也会自动为你生成相关的实现，前提是所有属性都是 Decodable 的
 
 ``` 
 typealias Codable = Decodable & Encodable
@@ -82,4 +87,7 @@ public protocol Encodable {
 }
 ```
 
-
+参考
++ [Swift4中Codable的使用](https://www.jianshu.com/p/5dab5664a621)
++ [Swift 4.0: Codable](https://www.jianshu.com/p/febdd25ae525)
++ [Swift 4之Codable全面解析](https://www.jianshu.com/p/21c8724e7b12)
