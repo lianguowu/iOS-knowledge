@@ -70,13 +70,14 @@ Collection 是一个继承于 Sequence 序列，是一个元素可以反复遍�
 
 ### 6.CodableProtocol
 Swift 4中苹果引入了全新的编码与解码支持，开发者可以更加方便地将数据转化为JSON或存入本地磁盘。这个功能的核心是Codable协议，其定义如下：
-`typealias Codable = Decodable & Encodable
+
+```typealias Codable = Decodable & Encodable
 
 public protocol Decodable {
     public init(from decoder: Decoder) throws
 }
 public protocol Encodable {
     public func encode(to encoder: Encoder) throws
-}`
+}```
 
 
