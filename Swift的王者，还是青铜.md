@@ -78,6 +78,7 @@ public protocol Decodable {
 }
 public protocol Encodable {
     public func encode(to encoder: Encoder) throws
-}```
+}
+```
 
 
