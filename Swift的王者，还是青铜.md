@@ -4,6 +4,7 @@ Swift的王者，还是青铜 [链接地址](https://juejin.im/post/5e96f898e51d
 Swift 内功劝退篇: [链接地址](https://mp.weixin.qq.com/s/U95QmOOjeXkk-yC23cuZCQ)
 
 
+
 ## 协议
 ### 1.Sequence 序列协议
 
@@ -14,6 +15,7 @@ Sequence的协议里只有一个必须实现的方法就是makeIterator()，make
 参考
 + [Swift中的Sequence基本的使用](https://www.jianshu.com/p/f431984b6e3b)
 + [Swift Sequence实现](https://www.jianshu.com/p/d27099e17a6f)
+
 
 ### 2.Literal Protocol 字面量协议
 
@@ -36,8 +38,10 @@ Swift中的字面量协议主要有以下几个：
 + ExpressibleByUnicodeScalarLiteral
 + ExpressibleByExtendedGraphemeClusterLiteral
 
+
 参考
 + [Swift的字面量类型（Literal Type）和字面量协议（Literal Protocol）](https://www.jianshu.com/p/c9c19d0f337c)
+
 
 ### 3.Collection Protocol
 
@@ -56,19 +60,11 @@ Collection 是一个继承于 Sequence 序列，是一个元素可以反复遍�
 
 在调试的时候总会发现在输出自定义的类与结构体时,会打印很多不想输出的变量,这就有了CustomStringConvertible,CustomDebugStringConvertible这两个协议的用处.自定义打印信息(print debugPrint),实现description debugDescription的方法
 
-
 参考
 + [Swift标准库协议--CustomStringConvertible协议](https://www.jianshu.com/p/7d2a10a7f6d4)
 
-### 5.Hashable Protocol
-字典其实是哈希表。字典通过键的 hashValue 来为每个键在其底层作为存储的数组上指定一个位置。这也就是 Dictionary 要求它的 Key 类型需要遵守 Hashable 协议的原因。标准库中所有的基本数据类型都是遵守 Hashable 协议的，它们包括字符串，整数，浮点数以及布尔值。另外，像是数组，集合和可选值这些类型，如果它们的元素都是可哈希的，那么它们自动成为可哈希的
 
-参考
-+ [《Swift进阶》学习笔记之 - Hashable协议](https://www.jianshu.com/p/b1f41b28bda0)
-+ [Swift Hashable](https://www.jianshu.com/p/d6012628e207)
-+ [Swift 4.2 新特性详解 Hashable 和 Hasher](https://www.jianshu.com/p/0b688dd4c67c)
-
-### 6.CodableProtocol
+### 5.CodableProtocol
 
 Swift 新引入的 Codable 是建立在一些基础协议之上的。
 
@@ -91,3 +87,29 @@ public protocol Encodable {
 + [Swift4中Codable的使用](https://www.jianshu.com/p/5dab5664a621)
 + [Swift 4.0: Codable](https://www.jianshu.com/p/febdd25ae525)
 + [Swift 4之Codable全面解析](https://www.jianshu.com/p/21c8724e7b12)
+
+
+### 6.Hashable Protocol
+
+字典其实是哈希表。字典通过键的 hashValue 来为每个键在其底层作为存储的数组上指定一个位置。这也就是 Dictionary 要求它的 Key 类型需要遵守 Hashable 协议的原因。标准库中所有的基本数据类型都是遵守 Hashable 协议的，它们包括字符串，整数，浮点数以及布尔值。另外，像是数组，集合和可选值这些类型，如果它们的元素都是可哈希的，那么它们自动成为可哈希的
+
+参考
++ [《Swift进阶》学习笔记之 - Hashable协议](https://www.jianshu.com/p/b1f41b28bda0)
++ [Swift Hashable](https://www.jianshu.com/p/d6012628e207)
++ [Swift 4.2 新特性详解 Hashable 和 Hasher](https://www.jianshu.com/p/0b688dd4c67c)
+
+
+### 7.Comparable Equatable
+
+在Swift中可以通过实现Equatable协议使自定义类型支持==以及!=这两种运算符；Comparable协议继承于Equatable，实现Comparable协议可以在Equatable的基础上使类型支持>，>=，<，<=四种运算符。
+
+参考
++ [Swift学习笔记-Comparable和Equatable](https://blog.csdn.net/xiongya8888/article/details/83796709)
++ [swift - Equatable,Hashable,Comparable](https://www.jianshu.com/p/5aa75cd5e13e)
+
+
+
+
+
+
+
