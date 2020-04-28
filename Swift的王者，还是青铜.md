@@ -128,8 +128,19 @@ public protocol Encodable {
 
 open > public > interal > fileprivate > private
 
-private 与 fileprivate:swift 3.0 以前，在使用extension时，private修饰的属性也能被访问到。而filePrivate的出现替代了private,而原有的private变成真正的私有属性，只有在当前类中可以使用。
+1.private:访问级别所修饰的属性或者方法只能在当前类里访问 (注:swift4.0中,extension里可以访问private属性)
 
+2.fileprivate:访问级别所修饰的属性或者方法在当前swift源文件里可以访问
+
+3.internal:(默认访问级别,可不写)
+
++ internal访问级别所修饰的属性或者方法在所在的整个模块都可以访问
++ 如果是框架或者代码库,则在整个框架内部都可以访问,框架由外部引用时,则不可以访问
++ 如果是app代码,在整个app都可以访问
+
+4.public:可以被任何人访问.但其他module中不可以被override和继承,而在module内可以被override和继承
+
+5.open:可以被任何人使用,包括override和继承
 
 
 
