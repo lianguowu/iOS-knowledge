@@ -161,5 +161,6 @@ Swift中protocol的功能比OC中强大很多，不仅能再class中实现，同
 把参数本身引用(内存地址)传递过去，在调用的过程会影响原始数据。  
 在 Swift 众多数据类型中，只有 class 是引用类型，其余的如 Int、Float、Bool、Character、Array、Set、enum、struct全都是值类型.
 
-
+3. inout让值类型以引用方式传递
+有时候我们需要通过一个函数改变函数外面变量的值(将一个值类型参数以引用方式传递)，这时，Swift 提供的 inout 关键字就可以实现。
 
