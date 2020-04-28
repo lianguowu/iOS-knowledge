@@ -128,22 +128,41 @@ public protocol Encodable {
 
 open > public > interal > fileprivate > private
 
-1.private:访问级别所修饰的属性或者方法只能在当前类里访问 (注:swift4.0中,extension里可以访问private属性)
+1. private:访问级别所修饰的属性或者方法只能在当前类里访问 (注:swift4.0中,extension里可以访问private属性)
 
-2.fileprivate:访问级别所修饰的属性或者方法在当前swift源文件里可以访问
+2. fileprivate:访问级别所修饰的属性或者方法在当前swift源文件里可以访问
 
-3.internal:(默认访问级别,可不写)
-
+3. internal:(默认访问级别,可不写)
 + internal访问级别所修饰的属性或者方法在所在的整个模块都可以访问
 + 如果是框架或者代码库,则在整个框架内部都可以访问,框架由外部引用时,则不可以访问
 + 如果是app代码,在整个app都可以访问
 
-4.public:可以被任何人访问.但其他module中不可以被override和继承,而在module内可以被override和继承
+4. public:可以被任何人访问.但其他module中不可以被override和继承,而在module内可以被override和继承
 
-5.open:可以被任何人使用,包括override和继承
+5. open:可以被任何人使用,包括override和继承
+
+6. fianl修饰的元素不希望被继承和重写
+
+### 3.mutating
+
+在Swift中，包含三种类型(type): structure,enumeration,class
+其中structure和enumeration是值类型(value type),class是引用类型(reference type)
+Swift中protocol的功能比OC中强大很多，不仅能再class中实现，同时也适用于struct、enum。但是struct、enum都是值类型，每个值都是有默认的，所以在实例方法中不能改变，因此就要用mutating关键字，这个关键字可以让在此方法中值的改变，会返回到原始结构里边
+
+参考
++ [Swift - mutating关键字的使用](https://www.jianshu.com/p/14cc9d30770a)
 
 
+### 4.inout
+1. 值类型
 
+传递的是参数的一个副本，这样在调用参数的过程中不会影响原始数据。
+
+2. 引用类型
+
+把参数本身引用(内存地址)传递过去，在调用的过程会影响原始数据。
+
+在 Swift 众多数据类型中，只有 class 是引用类型，其余的如 Int、Float、Bool、Character、Array、Set、enum、struct全都是值类型.
 
 
 
