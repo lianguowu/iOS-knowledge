@@ -108,6 +108,29 @@ public protocol Encodable {
 + [swift - Equatable,Hashable,Comparable](https://www.jianshu.com/p/5aa75cd5e13e)
 
 
+## 关键字
+
+### 1.@propertyWrapper
+
+看过上面代码, 开始具体说一下 @propertyWrapper.
+简单的理解就是包装属性.
+怎么包装? 替换 set 和 get 方法
+每个 @propertyWrapper 都必须实现一个属性 wrappedValue, 实现 wrappedValue 的 set get 就相当于替换掉原属性的 set get.
+如果你想实现被 @propertyWrapper 包裹的属性 get set, 会产生错误 Property wrapper cannot be applied to a computed property
+
+@propertyWrapper 的思想是, 只可以通过 wrappedValue 的 get set 方法来访问属性, 所以它默认的初始化方法是下面的方法, 给wrappedValue初始值, 这个是从Swift Property Wrappers 复制过来的时候发现的, 但你也可以不实现这个方法, 通过其他的方式初始化, 比如上面 UserDefaults 的实现.
+
+参考
++ [@propertyWrapper](https://www.jianshu.com/p/6e963d82b129)
+
+
+### 2.public open final private 与 fileprivate
+
+open > public > interal > fileprivate > private
+
+private 与 fileprivate:swift 3.0 以前，在使用extension时，private修饰的属性也能被访问到。而filePrivate的出现替代了private,而原有的private变成真正的私有属性，只有在当前类中可以使用。
+
+
 
 
 
