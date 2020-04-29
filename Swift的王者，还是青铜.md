@@ -164,3 +164,41 @@ Swift中protocol的功能比OC中强大很多，不仅能再class中实现，同
 3. inout让值类型以引用方式传递
 有时候我们需要通过一个函数改变函数外面变量的值(将一个值类型参数以引用方式传递)，这时，Swift 提供的 inout 关键字就可以实现。
 
+需要注意的是：
+1. 使用 inout 关键字的函数，在调用时需要在该参数前加上 & 符号
+2. inout 参数在传入时必须为变量，不能为常量或字面量（literal）
+3. inout 参数不能有默认值，不能为可变参数
+4. inout 参数不等同于函数返回值，是一种使参数的作用域超出函数体的方式
+5. 多个inout 参数不能同时传入同一个变量，因为拷入拷出的顺序不定，那么最终值也不能确定
+
+
+### 5.@dynamicMemberLookup
+
+这个特性中文可以叫动态查找成员。在使用@dynamicMemberLookup标记了对象后（对象、结构体、枚举、protocol），实现了subscript(dynamicMember member: String)方法后我们就可以访问到对象不存在的属性。如果访问到的属性不存在，就会调用到实现的 subscript(dynamicMember member: String)方法，key 作为 member 传入这个方法。
+
+这个方法可以被重载。和泛型的逻辑类似，会根据你要的返回值而通过类型推断来选择对应的subscript方法。
+
+需要注意的是如果声明在类上，那么他的子类也会具有动态查找成员的能力
+
+参考
++ [Swift新特性dynamicMemberLookup和dynamicCallable](https://www.jianshu.com/p/ec34e4f4efc6)
++ [细说 Swift 4.2 新特性：Dynamic Member Lookup](https://www.jianshu.com/p/13e6aa1ad584)
+
+### 6.@dynamicCallable
+
+@dynamicCallable属性,该属性带来了将类型标记为可直接调用的能力。它是语法糖,而不是任何类型的编译器,有效地转换此代码:
+
+之前,在Swift 4.2 中写了一个叫做@dynamicMemberLookup的功能。@dynamicCallable是@dynamicMemberLookup的自然扩展,@dynamicMemberLookup并且具有相同的目的:使 Swift 代码更容易与动态语言(如 Python 和 JavaScript)一起工作
+要将此功能添加到自己的类里,需要添加@dynamicCallable属性加上以下一@dynamicCallable种或两种方法:
+
++ func dynamicallyCall(withArguments args: [Int]) -> Double
+
++ func dynamicallyCall(withKeywordArguments args: KeyValuePairs<String, Int>) -> Double
+
+第一种是在调用没有参数标签的类型时使用的,第二种是在提供标签时a(b, c)使用的(例如a(b: cat, c: dog) ).
+
+@dynamicCallable非常灵活地了解其方法接受和返回的数据类型,让您从 Swift 的所有类型安全性中获益,同时仍有一些可高级使用空间。因此,对于第一个方法(没有参数标签),您可以使用任何符合ExpressibleByArrayLiteral的任何方法,如数组、数组切片和集;对于第二种方法(带有参数标签),您可以使用任何符合ExpressibleByDictionaryLiteral文本,如字典和键值对。
+
+
+
+
