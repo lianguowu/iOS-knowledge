@@ -200,5 +200,17 @@ Swift中protocol的功能比OC中强大很多，不仅能再class中实现，同
 @dynamicCallable非常灵活地了解其方法接受和返回的数据类型,让您从 Swift 的所有类型安全性中获益,同时仍有一些可高级使用空间。因此,对于第一个方法(没有参数标签),您可以使用任何符合ExpressibleByArrayLiteral的任何方法,如数组、数组切片和集;对于第二种方法(带有参数标签),您可以使用任何符合ExpressibleByDictionaryLiteral文本,如字典和键值对。
 
 
+### 7.where
+
+```
+//基类A继承了SomeProtocol协议才能添加扩展
+extension SomeProtocol where Self: A {
+    func showParamA() {
+        print(self.a)
+    }
+}
+
+```
+
 
 
