@@ -202,6 +202,7 @@ Swift中protocol的功能比OC中强大很多，不仅能再class中实现，同
 
 ### 7.where
 
+协议约束
 ```
 //基类A继承了SomeProtocol协议才能添加扩展
 extension SomeProtocol where Self: A {
@@ -211,6 +212,28 @@ extension SomeProtocol where Self: A {
 }
 
 ```
+
+
+### @autoclosure(自动闭包) @escaping(逃逸闭包)
+@autoclosure：他可以让我们的表达式自动封装成一个闭包，Apple为了让语法看起来更漂亮些，在Swift中为我们提供了这么一个神奇的东西。
+@autoclosure只适用于这样的()->T无参闭包。
+
+```
+    func or(first: Bool,  second: @autoclosure ()->Bool ) -> Bool {
+        if first {
+            return true
+        }else{
+            return second()
+        }
+    }
+    
+```
+
+@escaping 逃逸闭包：当一个闭包作为参数传到一个函数中，但是这个闭包在函数返回之后才被执行，我们称该闭包从函数中逃逸。当你定义接受闭包作为参数的函数时，你可以在参数名之前标注 @escaping，用来指明这个闭包是允许“逃逸”出这个函数的。
+
+逃逸闭包使用场景
++ 异步调用：如果需要调度队列中异步调用闭包，这个队列会持有闭包的引用，至于什么时候调用闭包，或者闭包什么时候运行结束都是不可预知的。
++ 存储：需要存储闭包作为属性，全局变量或者其他类型做稍后使用。
 
 
 
