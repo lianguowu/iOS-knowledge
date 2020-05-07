@@ -212,9 +212,12 @@ extension SomeProtocol where Self: A {
 }
 
 ```
+参考
++ [Swift where 关键字](https://www.jianshu.com/p/1546594b856b)
++ [Swift之where一般使用场景](https://www.jianshu.com/p/b5c015483e59)
 
 
-### @autoclosure(自动闭包) @escaping(逃逸闭包)
+### 8.@autoclosure(自动闭包) @escaping(逃逸闭包)
 @autoclosure：他可以让我们的表达式自动封装成一个闭包，Apple为了让语法看起来更漂亮些，在Swift中为我们提供了这么一个神奇的东西。
 @autoclosure只适用于这样的()->T无参闭包。
 
@@ -235,5 +238,5 @@ extension SomeProtocol where Self: A {
 + 异步调用：如果需要调度队列中异步调用闭包，这个队列会持有闭包的引用，至于什么时候调用闭包，或者闭包什么时候运行结束都是不可预知的。
 + 存储：需要存储闭包作为属性，全局变量或者其他类型做稍后使用。
 
-
-
+参考
++ [闭包（Closures）](https://wiki.jikexueyuan.com/project/swift/chapter2/07_Closures.html#escaping_closures)
