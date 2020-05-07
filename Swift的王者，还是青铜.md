@@ -1,4 +1,5 @@
 # Swift的王者，还是青铜
+
 Swift的王者，还是青铜 [链接地址](https://juejin.im/post/5e96f898e51d4546c27bcf81)
 
 Swift 内功劝退篇: [链接地址](https://mp.weixin.qq.com/s/U95QmOOjeXkk-yC23cuZCQ)
@@ -240,3 +241,12 @@ extension SomeProtocol where Self: A {
 
 参考
 + [闭包（Closures）](https://wiki.jikexueyuan.com/project/swift/chapter2/07_Closures.html#escaping_closures)
+
+
+## 高阶函数
+
+1. filter过滤器：就是筛选的功能，参数是一个用来判断是否筛除的筛选闭包，根据闭包函数返回的Bool值来过滤值。为True则加入到结果数组中。  
+定义如下：func filter(includeElement: (T) -> Bool) -> [T]
+
+
+
