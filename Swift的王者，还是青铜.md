@@ -248,5 +248,14 @@ extension SomeProtocol where Self: A {
 1. filter过滤器：就是筛选的功能，参数是一个用来判断是否筛除的筛选闭包，根据闭包函数返回的Bool值来过滤值。为True则加入到结果数组中。  
 定义如下：func filter(includeElement: (T) -> Bool) -> [T]
 
+2. map 方法接受一个闭包作为参数， 然后它会遍历整个 numbers 数组，并对数组中每一个元素执行闭包中定义的操作。 
+相当于对数组中的所有元素做了一个映射。   func map(@noescape transform: (Self.Generator.Element) throws -> T) rethrows -> [T]
 
+3. flatMap: 对数组的每一个元素做一次处理，返回处理后的数组
++ 返回后的数组中不存在nil， 同时也会把Optional解包。
++ 函数声明：@available(swift, deprecated: 4.1, renamed: "compactMap(:)", message: "Please use compactMap(:) for the case where closure returns an optional value")
++ 注意：4.1之后如果闭包中返回的值是可选的话，就要使用compactMap代替flatMap了，不然的话就会警告。
++ flatMap还能把多维数组变成一维数组
++ flatMap也能把两个不同的数组合并成一个数组，这个合并的数组元素个数是前面两个数组元素个数的乘积
 
+4. compactMap与flatMap的区别，当闭包中的返回结果是可选的时候，使用compactMap代替flatMap，那么当闭包中的返回结果不是可选的时候，依然使用flatMap。
