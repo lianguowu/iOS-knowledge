@@ -259,3 +259,8 @@ extension SomeProtocol where Self: A {
 + flatMap也能把两个不同的数组合并成一个数组，这个合并的数组元素个数是前面两个数组元素个数的乘积
 
 4. compactMap与flatMap的区别，当闭包中的返回结果是可选的时候，使用compactMap代替flatMap，那么当闭包中的返回结果不是可选的时候，依然使用flatMap。
+
+5. reduce
+
+参考
++ [swift, Array的高阶函数：flatMap 和 compactMap](https://www.jianshu.com/p/2b53afb9da3e)
