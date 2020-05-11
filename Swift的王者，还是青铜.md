@@ -261,7 +261,17 @@ extension SomeProtocol where Self: A {
 4. compactMap与flatMap的区别，当闭包中的返回结果是可选的时候，使用compactMap代替flatMap，那么当闭包中的返回结果不是可选的时候，依然使用flatMap。
 
 5. reduce方法把数组元素组合计算为一个值，并且会接受一个初始值，这个初始值的类型可以和数组元素类型不同。  
-函数声明  public func reduce<Result>(_ initialResult: Result, _ nextPartialResult: (Result, Element) throws -> Result) rethrows -> Result
+map,flatMap和filter方法都是通过一个已存在的数组，生成一个新的、经过修改的数组。然而有时候我们需要把所有元素的值合并成一个新的值 那么就用到了Reduce
+
+函数声明  
+```
+@inlinable public func reduce<Result>(_ initialResult: Result, _ nextPartialResult: (Result, Element) throws -> Result) rethrows -> Result
+
+@inlinable public func reduce<Result>(into initialResult: Result, _ updateAccumulatingResult: (inout Result, Element) throws -> ()) rethrows -> Result
+
+```
 
 参考
 + [swift, Array的高阶函数：flatMap 和 compactMap](https://www.jianshu.com/p/2b53afb9da3e)
++ [Swift化零为整：Reduce方法详解](https://www.jianshu.com/p/671760c26061)
++ [Swift 数组filter、map、reduce方法浅谈](https://www.jianshu.com/p/d93c1cefde09)
