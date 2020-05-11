@@ -260,7 +260,8 @@ extension SomeProtocol where Self: A {
 
 4. compactMap与flatMap的区别，当闭包中的返回结果是可选的时候，使用compactMap代替flatMap，那么当闭包中的返回结果不是可选的时候，依然使用flatMap。
 
-5. reduce方法把数组元素组合计算为一个值，并且会接受一个初始值，这个初始值的类型可以和数组元素类型不同。
+5. reduce方法把数组元素组合计算为一个值，并且会接受一个初始值，这个初始值的类型可以和数组元素类型不同。  
+函数声明  public func reduce<Result>(_ initialResult: Result, _ nextPartialResult: (Result, Element) throws -> Result) rethrows -> Result
 
 参考
 + [swift, Array的高阶函数：flatMap 和 compactMap](https://www.jianshu.com/p/2b53afb9da3e)
