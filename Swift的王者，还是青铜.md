@@ -275,3 +275,23 @@ map,flatMap和filter方法都是通过一个已存在的数组，生成一个新
 + [swift, Array的高阶函数：flatMap 和 compactMap](https://www.jianshu.com/p/2b53afb9da3e)
 + [Swift化零为整：Reduce方法详解](https://www.jianshu.com/p/671760c26061)
 + [Swift 数组filter、map、reduce方法浅谈](https://www.jianshu.com/p/d93c1cefde09)
+
+
+## 其他
+
+### 柯理化(Currying)
+柯里化（Currying），是一种函数式编程思想，就是把接受多个参数的函数转换成接收一个单一参数（最初函数的第一个参数）的函数，并且返回一个接受余下参数的新函数技术。
+
+所以，柯里化又可理解为部分求值（Partial Evaluation），返回接收剩余参数且返回结果的新函数。想要应用柯里化，就必须先理解柯里化的作用和特点，这里总结为三点：
++ 参数复用 – 复用最初函数的第一个参数
++ 提前返回 – 返回接受余下的参数且返回结果的新函数
++ 延迟执行 – 返回新函数，等待执行
+
+在Swift中，由于柯里化在业务层的应用较少，所以从Swift3.0之后移除了便捷柯里化的用法，但是特性还是保持了，就像上述那个例子，并且Swift的很多底层特性是使用柯里化来表达的，比如结构体的实例化方法就是一个柯里化函数。
+
+
+参考
++ [Swift 柯里化](https://www.jianshu.com/p/b3195e0c68a7)
++ [Swift 柯里化函数-总结及理解](https://www.jianshu.com/p/f61ef47d7bb6)
++ [【Swift之柯里化函数（精品）】| 那些人追的干货](https://www.jianshu.com/p/6eaacadafa1a)
+
