@@ -27,7 +27,7 @@ Sequence的协议里只有一个必须实现的方法就是makeIterator()，make
 
 Swift中的字面量协议主要有以下几个：
 
-+ ExpressibleByNilLiteral         // nil字面量协议
++ ExpressibleByNilLiteral         // Nil字面量协议
 + ExpressibleByIntegerLiteral     // 整数字面量协议
 + ExpressibleByFloatLiteral       // 浮点数字面量协议
 + ExpressibleByBooleanLiteral     // 布尔值字面量协议
