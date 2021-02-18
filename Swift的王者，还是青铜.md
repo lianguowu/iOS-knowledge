@@ -6,6 +6,19 @@ Swift 内功劝退篇: [链接地址](https://mp.weixin.qq.com/s/U95QmOOjeXkk-yC
 
 Swift进阶黄金之路: [链接地址](https://juejin.im/post/5eb8186bf265da7b95055d4d)
 
+## Swift 中的值类型与引用类型
+
+1.值类型，即每个实例保持一份数据拷贝。
+在 Swift 中，典型的有 struct，enum，以及 tuple 都是值类型。而平时使用的 Int， Double，Float，String，Array，Dictionary，Set 其实都是用结构体实现的，也是值类型。
+Swift 中，值类型的赋值为深拷贝（Deep Copy），值语义（Value Semantics）即新对象和源对象是独立的，当改变新对象的属性，源对象不会受到影响，反之同理。
+
+2.引用类型（Reference Type）
+引用类型，即所有实例共享一份数据拷贝。
+在 Swift 中，class 和闭包是引用类型。引用类型的赋值是浅拷贝（Shallow Copy），引用语义（Reference Semantics）即新对象和源对象的变量名不同，但其引用（指向的内存空间）是一样的，因此当使用新对象操作其内部数据时，源对象的内部数据也会受到影响。
+
+
++ [Swift 中的值类型与引用类型](https://www.jianshu.com/p/ba12b64f6350)
+
 
 ## 协议
 ### 1. Sequence 序列协议
