@@ -143,7 +143,7 @@ public protocol Encodable {
 
 ### 2. public open final private 与 fileprivate
 
-open > public > interal > fileprivate > private
+open > public > internal > fileprivate > private
 
 1. private:访问级别所修饰的属性或者方法只能在当前类里访问 (注:swift4.0中,extension里可以访问private属性)
 
