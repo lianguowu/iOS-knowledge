@@ -4,7 +4,9 @@
 ## 事件传递和响应者链条
 
 在iOS中只有继承UIResponder的对象才能够接收并处理事件，UIResponder 是所有响应对象的基类，在UIResponder类中定义了处理上述各种事件的接口。我们熟悉的 UIApplication、 UIViewController、 UIWindow 和所有继承自UIView的UIKit类都直接或间接的继承自UIResponder，所以它们的实例都是可以构成响应者链的响应者对象，首先我们通过一张图来简单了解一下事件的传递以及响应.
+
 ![Image text](https://upload-images.jianshu.io/upload_images/1197641-ca37721f0f3719bf.png)
+
 
 ## 响应者链条
 
