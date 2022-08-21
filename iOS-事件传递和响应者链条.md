@@ -97,3 +97,40 @@ iOS系统检测到手指触摸(Touch)操作时会将其打包成一个UIEvent对
     return NO;
 }
 ```
+
+3. UIButton改变区域响应
+
+当我们为了显示美观，按钮比较小时，希望响应区域大一点，更容易点击。
+当我们写一个较大圆按钮，不希望圆以外的四个边角来响应，这里也可以使用layer.cornerRadius和layer.masksToBounds配合实现。
+
+这时候我们可以继承UIButton自定义按钮，重写用来判断触摸点是否在控件上方法来实现。
+`-(BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event;`
+
+```
+- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {
+    if (CGRectContainsPoint(CGRectInset(self.bounds, -20, -20), point)) {
+        return YES;
+    }
+    return NO;
+}
+```
+
+4. UIButton超出父视图响应
+当我们自定义tabbar并放一个异形按钮在上面，这个按钮有一部分又超出了tabbar，超出的部分点击就没有响应，这时候可以用判断控件是否接受事件以及找到最合适的view的方法来实现
+`-(UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event;`
+
+```
+- (nullable UIView *)hitTest:(CGPoint)point withEvent:(nullable UIEvent *)event {
+    UIView * view = [super hitTest:point withEvent:event];
+    if (view == nil) {
+        for (UIView * subView in self.subviews) {
+            // 将坐标系转化为自己的坐标系
+            CGPoint pt = [subView convertPoint:point fromView:self];
+            if (CGRectContainsPoint(subView.bounds, pt)) {
+                view = subView;
+            }
+        }
+    }
+    return view;
+}
+```
