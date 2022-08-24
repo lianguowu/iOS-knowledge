@@ -12,7 +12,17 @@
 
 响应者链条就是由多个响应者对象连接起来的链条，它的作用就是让我们能够清楚的看见每个响应者之间的联系，并且可以让一个时间多个对象处理.
 
-iOS系统检测到手指触摸(Touch)操作时会将其打包成一个UIEvent对象，并放入当前活动Application的事件队列，单例的UIApplication会从事件队列中取出触摸事件并传递给单例的UIWindow来处理，UIWindow对象首先会使用hitTest:withEvent:方法寻找此次Touch操作初始点所在的视图(View)，即需要将触摸事件传递给其处理的视图(最合适来处理的控件)，这个过程称之为hit-test view。
+
+## 事件分发机制
+
+iOS 检测到手指触摸 (Touch) 操作时会将其打包成一个 UIEvent 对象，并放入当前活动Application的事件队列，UIApplication 会从事件队列中取出触摸事件并传递给单例的 UIWindow 来处理，UIWindow 对象首先会使用 hitTest:withEvent:方法寻找此次Touch操作初始点所在的视图(View)，即需要将触摸事件传递给其处理的视图，这个过程称之为 hit-test view。 hitTest:withEvent:方法的处理流程如下:
+
+1. 首先调用当前视图的 pointInside:withEvent: 方法判断触摸点是否在当前视图内；
+2. 若返回 NO, 则 hitTest:withEvent: 返回 nil，若返回 YES, 则向当前视图的所有子视图 (subviews) 发送 hitTest:withEvent: 消息，所有子视图的遍历顺序是从最顶层视图一直到到最底层视图（后加入的先遍历），直到有子视图返回非空对象或者全部子视图遍历完毕；
+3. 若第一次有子视图返回非空对象，则 hitTest:withEvent: 方法返回此对象，处理结束；
+4. 如所有子视图都返回空，则 hitTest:withEvent: 方法返回自身 (self)。 流程图如下： 
+
+![image](https://camo.githubusercontent.com/24d7fc14732aa7b45813e88b9bf20ead9a3806572ae312a63745879d6011d3ef/68747470733a2f2f75706c6f61642d696d616765732e6a69616e7368752e696f2f75706c6f61645f696d616765732f32323837373939322d336538663163383231396331306661312e706e673f696d6167654d6f6772322f6175746f2d6f7269656e742f7374726970253743696d61676556696577322f322f772f31323430)
 
 那么什么是最适合来处理事件的控件?
 1. 自己能响应触摸事件
