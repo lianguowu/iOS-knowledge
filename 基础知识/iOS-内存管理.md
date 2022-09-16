@@ -121,4 +121,5 @@ void* p = (void*)obj;
 ## 线程安全
 
 NSArray和NSDictionary是线程安全的。 NSMutableArray和NSMutableDictionary是线程不安全的。
+
 [线程安全总结](https://blog.csdn.net/iosswift/article/details/44597759)
