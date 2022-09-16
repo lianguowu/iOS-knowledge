@@ -52,6 +52,7 @@ weak_table是存储对象弱引用的一个结构体
 3. 从weak_table_t中保存着的一个sidetable中所有weak_entries表
 4. 从weak_entries中通过对象查找着某个对象对应的弱引用信息weak_entry_t
 5. weak_entry_t中保存着弱引用该对象的 指针地址的hash数组
+[iOS内存管理(三)SideTables详解](https://www.jianshu.com/p/84f637b9797d)
 
 
 ## iOS 中的Tagged Pointer
@@ -59,6 +60,7 @@ weak_table是存储对象弱引用的一个结构体
 Tagged Pointer对象一般用于NSNumber、NSDate、NSString等小对象的存储。通常来说，普通对象对象需要动态分配内存、维护引用计数等，对象指针存储的是堆中的对象的地址值。而Tagged Pointer对象呢，其指针里面不是地址，而是它的值。所以Tagged Pointer实际上已经不能算是对象了，只是一个对象皮的普通变量。它的内存并不存在堆中，也不需要malloc和free。Tagged Pointer对象不仅节省内存，在内存读取和对象创建上效率大大提高。
 
 小对象往往指的是占内存较小的对象，小道什么程度呢？小到它的值可以存储在对象的指针里面。在iOS中对象的指针是8位，8x8=64bit，由于对象指针本身还要存储地址，对很多占用内存比较小的对象，比如NSNumber、NSDate、NSString，它们有时候内存很小，可以直接和地址存储在对象指针里面，不需要开辟堆空间来存储。但是当它们的内存比较大时，指针存不下时，也会开辟堆空间来存储
+[iOS 中的Tagged Pointer](https://www.jianshu.com/p/df25116d474a)
 
 
 ## `_bridge、__bridge_retained、__bridge_transfer`
